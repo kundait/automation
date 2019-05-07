@@ -1,7 +1,7 @@
 #!/bin/sh
 # Backup.sh
 
-days=30 #set how old to begin backup from for monitor.log and mss.HISTORY tables.
+days=30 #set how old to begin backup from for large tables
 echo `date +%Y-%m-%d\ %T`" Starting backup"
 
 # Directories
