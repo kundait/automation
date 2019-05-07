@@ -1,7 +1,5 @@
 #!/bin/sh
 #
-
-
 echo "****product_INIT SCRIPT LAUNCHED****"
 hostname=`cat /etc/sysconfig/network | grep HOSTNAME | cut -f2 -d "="`
 host_check=`hostname`
