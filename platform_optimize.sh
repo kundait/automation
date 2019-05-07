@@ -132,8 +132,8 @@ cat /etc/httpd/conf/httpd.conf | sed -n '/^<IfModule prefork.c>/,/\<IfModule>/p'
 
 
 cat /etc/httpd/conf/httpd.conf | grep "Listen 80" | sed -i '/'"Listen 80"'/c'"#Listen 80"  /etc/httpd/conf/httpd.conf
-cat /etc/httpd/conf/httpd.conf | grep "User apache" | sed -i '/'"User apache"'/c'"User mss" /etc/httpd/conf/httpd.conf
-cat /etc/httpd/conf/httpd.conf | grep "Group apache" | sed -i '/'"Group apache"'/c'"Group mss" /etc/httpd/conf/httpd.conf
+cat /etc/httpd/conf/httpd.conf | grep "User apache" | sed -i '/'"User apache"'/c'"User my_user" /etc/httpd/conf/httpd.conf
+cat /etc/httpd/conf/httpd.conf | grep "Group apache" | sed -i '/'"Group apache"'/c'"Group my_group" /etc/httpd/conf/httpd.conf
 cat /etc/httpd/conf/httpd.conf | grep "DocumentRoot \"/var/www/html\"" | sed -i '/'"DocumentRoot \"\/var\/www\/html\""'/c'"DocumentRoot \"/opt\/pulse\/srv\/www\/public_html\"" /etc/httpd/conf/httpd.conf
 cat /etc/httpd/conf/httpd.conf | grep "<Directory \"/var/www/html\">" | sed -i '/'"<Directory \"\/var\/www\/html\">"'/c'"<Directory \"\/opt\/pulse\/srv\/www\/public_html\">" /etc/httpd/conf/httpd.conf
 cat /etc/httpd/conf/httpd.conf | grep "Options Indexes FollowSymLinks" | sed -i '/'"Options Indexes FollowSymLinks"'/c'"<LimitExcept GET POST>\ndeny from all\n</LimitExcept>\nOptions FollowSymLinks Includes Indexes  MultiViews\n" /etc/httpd/conf/httpd.conf
@@ -158,7 +158,7 @@ cat /etc/php.ini | grep ";upload_tmp_dir =" | sed -i '/'";upload_tmp_dir ="'/c'"
 cat /etc/php.ini | grep "upload_max_filesize = 2M" | sed -i '/'"upload_max_filesize = 2M"'/c'"upload_max_filesize = 8M" /etc/php.ini
 cat /etc/php.ini | grep "allow_url_include = Off" | sed -i '/'"allow_url_include = Off"'/c'";allow_url_include = Off" /etc/php.ini
 #cat /etc/php.ini | grep "\[sysvshm\]" | sed -i '/'"\[sysvshm\]"'/c'"[sysvshm]\nextension=mbstring.so\n" /etc/php.ini
-echo -e "\n[Zend]\nzend_loader.license_path=/usr/local/mss/conf/\nzend_loader.enable=1\n" >> /etc/php.ini
+echo -e "\n[Zend]\nzend_loader.license_path=/path/to/product/conf/\nzend_loader.enable=1\n" >> /etc/php.ini
 
 echo "Disabling PHP expose_php Information Disclosure..."
 
